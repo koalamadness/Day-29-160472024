@@ -4,9 +4,13 @@ class Animal {
   public void display(){
     System.out.println("I am an animal");
   }
+
+  protected String type = "animal";
+  
 }
 
 class Dog extends Animal {
+  public String type="mammal";
 
   // overriding method
   @Override
@@ -20,7 +24,12 @@ class Dog extends Animal {
     display();
 
     // this calls overridden method
-    super.display();
+    // super.display(); // PRIVATE ACCESS 
+  }
+
+  public void printType() {
+    System.out.println("I am a " + type);
+    System.out.println("I am an " + super.type);
   }
 }
 
@@ -28,5 +37,6 @@ class Main {
   public static void main(String[] args) {
     Dog dog1 = new Dog();
     dog1.printMessage();
+    dog1.printType();
   }
 }
